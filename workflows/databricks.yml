@@ -136,13 +136,16 @@ targets:
   dev:
     mode: development
     default: true
+    workspace:
+      host: https://fevm-permafrost.cloud.databricks.com
     variables:
-      catalog: <your-catalog>           # e.g. main, my_catalog
+      catalog: permafrost_catalog
       schema: control_plane
-      lakebase_dns: <your-lakebase-dns> # e.g. instance-xxxx.database.cloud.databricks.com
-      lakebase_instance: <your-lakebase-instance-name>
-      warehouse_id: <your-warehouse-id> # SQL warehouse ID for system table queries
-      account_id: <your-account-id>     # Databricks account ID
+      lakebase_dns: ep-silent-smoke-d1pgh0me.database.us-west-2.cloud.databricks.com
+      lakebase_database: control_plane
+      lakebase_instance: acp-lakebase
+      warehouse_id: 0efc784c4e199bd5
+      account_id: ""                     # Fill in for cross-workspace features
 
   prod:
     mode: development
@@ -153,11 +156,3 @@ targets:
       lakebase_instance: <your-lakebase-instance-name>
       warehouse_id: <your-warehouse-id>
       account_id: <your-account-id>
-  #     lakebase_instance: "my-lakebase-instance"
-  #     warehouse_id: "xxxx"
-  #     account_id: "xxxx"
-  #   resources:
-  #     jobs:
-  #       agent_discovery:
-  #         schedule:
-  #           quartz_cron_expression: "0 0/15 * * * ?"
